@@ -92,8 +92,9 @@ public class BattleService
                 BattleId = s.Id,
                 SourceParticipantId = a.Id,
                 TargetParticipantId = t.Id,
-                Type - "Hit",
-                Payload = $"{{\"dmg\":{dmg}}}"
+                //수정
+                // Type - "Hit",
+                // Payload = $"{{\"dmg\":{dmg}}}"
             });
         }
 
