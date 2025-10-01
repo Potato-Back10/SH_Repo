@@ -3,6 +3,7 @@ namespace Gamza.Enums
     public enum JobType
     {
         //1차
+        None, //기본상태 = 모험가
         Warrior,
         Mage,
         Archer,
