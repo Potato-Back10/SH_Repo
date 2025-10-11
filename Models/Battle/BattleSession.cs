@@ -11,21 +11,32 @@ namespace Gamza.Models
         public DateTime StartBattle { get; set; } = DateTime.UtcNow;
         public DateTime? EndBattle { get; set; }
 
-        public ICollection<BattleParticipant> Participatns { get; set; } = new List<BattleParticipant>();
+        public ICollection<BattleParticipant> Participants { get; set; } =
+            new List<BattleParticipant>();
     }
-    public enum ActorType { Player = 0, Monster = 1 }
-    public enum TeamSide { Players = 0, Monsters = 1 }
+
+    public enum ActorType
+    {
+        Player = 0,
+        Monster = 1,
+    }
+
+    public enum TeamSide
+    {
+        Players = 0,
+        Monsters = 1,
+    }
 
     public class BattleParticipant
     {
         public long Id { get; set; }
 
         public Guid BattleId { get; set; }
-        public BattleSession Battle { get; set; } = null;
+        public BattleSession? Battle { get; set; } = null;
 
         public ActorType Type { get; set; }
         public int ActorId { get; set; }
-        public TeamSide Team { get; set; } = TeamSide.Player;
+        public TeamSide Team { get; set; } = TeamSide.Players;
 
         public string? Name { get; set; }
         public int Level { get; set; }
@@ -49,11 +60,14 @@ namespace Gamza.Models
 
         //시전자
         public long? SourceParticipantId { get; set; }
+
         //대상
         public long? TargetParticipantId { get; set; }
 
         public DateTime Ts { get; set; } = DateTime.UtcNow;
         public string Type { get; set; } = string.Empty;
+
+        public string? Payload { get; set; }
     }
 
     public class RewardGrant
@@ -62,5 +76,5 @@ namespace Gamza.Models
         public Guid BattleId { get; set; }
         public int PlayerId { get; set; }
         public DateTime Ts { get; set; } = DateTime.UtcNow;
-    }  
+    }
 }

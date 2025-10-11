@@ -10,6 +10,7 @@ namespace Gamza.Models
         public int HP { get; set; } = 30;
         public int Attack { get; set; } = 5;
         public int Defense { get; set; } = 0;
+
         //처치시 경험치량
         public int RewardExp { get; set; } = 10;
     }

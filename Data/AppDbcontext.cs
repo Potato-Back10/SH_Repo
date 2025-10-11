@@ -27,11 +27,8 @@ public class AppDbContext : DbContext
             .HasForeignKey(p => p.BattleId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        b.Entity<BattleParticipant>()
-            .HasIndex(l => l.BattleId);
+        b.Entity<BattleParticipant>().HasIndex(l => l.BattleId);
 
-        b.Entity<RewardGrant>()
-            .HasIndex(r => new { r.BattleId, r.PlayerId })
-            .IsUnique();
+        b.Entity<RewardGrant>().HasIndex(r => new { r.BattleId, r.PlayerId }).IsUnique();
     }
 }
