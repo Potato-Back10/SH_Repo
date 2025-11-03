@@ -2,6 +2,9 @@ namespace Gamza.Enums
 {
     public enum JobType
     {
+        //0차
+        Traveler,
+
         //1차
         Warrior,
         Mage,

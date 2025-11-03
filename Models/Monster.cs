@@ -1,4 +1,5 @@
 using Gamza.Enums;
+
 namespace Gamza.Models
 {
     public class Monster
@@ -8,5 +9,4 @@ namespace Gamza.Models
         public int Hp { get; set; }
         public int Attack { get; set; }
     }
-
 }

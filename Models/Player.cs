@@ -10,5 +10,12 @@ namespace Gamza.Models
         public int Exp { get; set; } = 0;
         public Stauts PlayerStauts { get; set; } = Stauts.Str;
         public JobType? Job { get; set; }
+
+        public int CurrentJobId { get; set; }
+        public Job CurrentJob { get; set; } = default!;
+
+        // 히스토리
+        public ICollection<PlayerJobHistory> JobHistories { get; set; } =
+            new List<PlayerJobHistory>();
     }
 }
