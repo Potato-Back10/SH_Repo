@@ -6,7 +6,6 @@ namespace Gamza.Models
     public class Job
     {
         public int Id { get; set; }
-        public string Code { get; set; } = default!;
         public string Name { get; set; } = default!;
         public JobTier Tier { get; set; } = default!;
         public int MinLevel { get; set; }
