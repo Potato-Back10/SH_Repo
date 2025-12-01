@@ -43,6 +43,8 @@ builder
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<PlayerService>();
+
 
 // 3️⃣ 컨트롤러 + Swagger
 builder

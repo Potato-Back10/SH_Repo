@@ -7,5 +7,8 @@ namespace Gamza.Models
         public string LoginID { get; set; } = "";
         public string Password { get; set; } = "";
         public string Role { get; set; } = "User";
+
+        // 한 계정에 여러 캐릭터
+        public List<Player> Players { get; set; } = new();
     }
 }
