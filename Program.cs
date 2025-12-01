@@ -43,6 +43,7 @@ builder
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<IJobService, JobService>();
 builder.Services.AddScoped<PlayerService>();
 
 
