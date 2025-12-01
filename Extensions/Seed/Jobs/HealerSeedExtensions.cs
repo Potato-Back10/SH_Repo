@@ -6,7 +6,7 @@ namespace Gamza.Extensions.Seed.Jobs
 {
     internal static class HealerSeedExtensions
     {
-        public static void SeedArcherBranch(this ModelBuilder mb)
+        public static void SeedHealerBranch(this ModelBuilder mb)
         {
             mb.Entity<Job>()
                 .HasData(
