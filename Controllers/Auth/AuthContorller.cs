@@ -16,6 +16,20 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
+    [HttpPost("register")]
+    [SwaggerOperation(Summary = "회원가입")]
+    public async Task<IActionResult> Register([FromBody] UserRequestDto dto)
+    {
+        var isSuccess = await _authService.RegisterAsync(dto.LoginID, dto.Password, dto.Username);
+
+        if (!isSuccess)
+        {
+            return Conflict(new { message = "이미 존재하는 아이디입니다." });
+        }
+
+        return Ok(new { message = "회원가입이 완료되었습니다." });
+    }
+
     [AllowAnonymous]
     [HttpPost("login")]
     [SwaggerOperation(

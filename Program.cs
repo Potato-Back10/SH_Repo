@@ -7,13 +7,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1️⃣ MySQL DB 연결
+var connectionString = "Server=127.0.0.1;Port=3306;Database=Gamza;User=root;Password=1234;";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("MySql"),
-        new MySqlServerVersion(new Version(8, 0, 33))
+        connectionString,
+        ServerVersion.AutoDetect(connectionString) // 버전도 자동으로 찾게 변경
     )
 );
 
@@ -43,6 +46,11 @@ builder
 
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<IJobService, JobService>();
+builder.Services.AddScoped<PlayerService>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UserService>();
+
 
 // 3️⃣ 컨트롤러 + Swagger
 builder
